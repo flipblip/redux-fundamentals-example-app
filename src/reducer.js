@@ -42,6 +42,26 @@ export default function appReducer(state = initialState, action){
                 ]
             }
         }
+        case 'todos/todoToggled': {
+            return{
+                // Make a copy of the entire state object
+                ...state,
+                // We also need to make a copy of the old todos array
+                todos: state.todos.map(todo =>{
+                    // If not the todo item we're looking for, leave it alone
+                    if (todo.id !== action.payload){
+                        return todo
+                    }
+
+                    // When we'eve found the todo we want to change, return a copy:
+                    return{
+                        ...todo,
+                        // Flip the completed flag
+                        completed: !todo.completed
+                    }
+                })
+            }
+        }
         default:
             // When an action type is unrecognizable by our reducer or the reducer doesn't care about that specific action, return the existing state unchanged
             return state
