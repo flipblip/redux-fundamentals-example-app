@@ -62,6 +62,18 @@ export default function appReducer(state = initialState, action){
                 })
             }
         }
+        case 'filters/statusFilterChanged': {
+            return{
+                ...state,
+                // Overwrite the filters value
+                filters: {
+                    // copy the other filter fields
+                    ...state.filters,
+                    // And replace the status field with the new value
+                    status: action.payload
+                }
+            }
+        }
         default:
             // When an action type is unrecognizable by our reducer or the reducer doesn't care about that specific action, return the existing state unchanged
             return state
