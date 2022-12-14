@@ -1,4 +1,19 @@
+import todosReducer from "./features/todos/todosSlice"
+import filtersReducer from "./features/todos/filtersSlice"
 
+export default function rootReducer(state = {}, action){
+    // always return a new object for the root state
+    return{
+        // the value of `state.todos` is whatever the todos reducer returns
+        todos: todosReducer(state.todos, action),
+        // For both reducers, we only pass in their slice of the state
+        filters: filtersReducer(state.filters, action)
+    }
+}
+
+
+/** This is the code before we sliced up our reducer
+ 
 // Creating the root reducer
 // We'll add some fake todo entries to get us started
 const initialState = {
@@ -81,3 +96,5 @@ export default function appReducer(state = initialState, action){
 }
 
 // Next, we'll add the 'todos/todoAdded' action logic
+
+/** */
