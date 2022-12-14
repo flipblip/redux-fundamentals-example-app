@@ -18,9 +18,9 @@ const unsubscribe = store.subscribe(() =>
 
 // We'll now dispatch some actions
 
-store.dispatch({ type: 'todos/todAdded', payload: 'Learn about actions'})
-store.dispatch({ type: 'todos/todAdded', payload: 'Learn about reducers'})
-store.dispatch({ type: 'todos/todAdded', payload: 'Learn redux store'})
+store.dispatch({ type: 'todos/todoAdded', payload: 'Learn about actions'})
+store.dispatch({ type: 'todos/todoAdded', payload: 'Learn about reducers'})
+store.dispatch({ type: 'todos/todoAdded', payload: 'Learn redux store'})
 
 store.dispatch({ type: 'todos/todoToggled', payload: 0})
 store.dispatch({ type: 'todos/todoToggled', payload: 1})
