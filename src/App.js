@@ -5,7 +5,7 @@ function App() {
     <div className="App">
       <nav>
         <section>
-          <h1>Redux Fundamentals Example</h1>
+          <h1>Redux Fundamentals</h1>
 
           <div className="navContent">
             <div className="navLinks"></div>
