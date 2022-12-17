@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { useDispatch } from "react-redux"
 
 const Header = () =>{
     const [text, setText] = useState('')
@@ -25,6 +26,7 @@ const Header = () =>{
                 placeholder="What needs to be done?"
                 value={text}
                 onChange={handleChange}
+                onKeyDown={handleKeyDown}
             />
         </header>
     )

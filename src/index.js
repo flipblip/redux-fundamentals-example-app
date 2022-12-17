@@ -5,6 +5,7 @@ import App from './App'
 import store from './store'
 
 import './api/server'
+import { Provider } from 'react-redux'
 
 // // Log the initial state
 // console.log('Initial state: ', store.getState())
@@ -45,7 +46,9 @@ import './api/server'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 )
