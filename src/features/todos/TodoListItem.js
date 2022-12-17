@@ -5,6 +5,23 @@ import { availableColors, capitalize } from '../filters/colors';
 
 
 const TodoListItem = ({ todo, onColorChange, onCompletedChange, onDelete}) =>{
+    const { text, completed, color } = todo
+
+    const handleCompletedChange = (e) =>{
+        onCompletedChange(e.target.checked)
+    }
+
+    const handleColorChange = (e) =>{
+        onColorChange(e.target.value)
+    }
+
+    const colorOptions = availableColors.map((c) => (
+        <option 
+            key={c} 
+            value={c}>
+                {capitalize(c)}
+        </option>
+    ))
 
 
     return(
