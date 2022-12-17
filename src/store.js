@@ -4,6 +4,14 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import { print1, print2, print3 } from "./exampleAddons/middleware";
 import { loggerMiddleware } from "./exampleAddons/enhancers";
 import { delayedMessageMiddleware } from "./exampleAddons/enhancers";
+
+
+const composedEnhancer = composeWithDevTools(
+        applyMiddleware()
+)
+
+const store = createStore(rootReducer, composedEnhancer)
+
 // import { sayHiOnDispatch,
 //         includeMeaningOfLife
 // } from "./exampleAddons/enhancers"
@@ -22,17 +30,17 @@ import { delayedMessageMiddleware } from "./exampleAddons/enhancers";
 //     }
 // }
 
-const middlewareEhancer = composeWithDevTools(applyMiddleware(print1, print2, print3, loggerMiddleware, delayedMessageMiddleware))
+// const middlewareEhancer = composeWithDevTools(applyMiddleware(print1, print2, print3, loggerMiddleware, delayedMessageMiddleware))
 
 
 
 
 // Pass the enhancer as the second arg, since there's no preloadedState
-const store = createStore(rootReducer, middlewareEhancer);
+// const store = createStore(rootReducer, middlewareEhancer);
 
-console.log('Dispatching an action to store')
-store.dispatch({ type: 'todos/todoAdded', payload: 'Learn about actions' });
-console.log('Dispatch complete')
+// console.log('Dispatching an action to store')
+// store.dispatch({ type: 'todos/todoAdded', payload: 'Learn about actions' });
+// console.log('Dispatch complete')
 
 // We can also pass preloadedState value as the createStore's second argument.
 // This can be used to add data when the store is created. e.g., valuses included in a HTML page from the server, or values persisted in localStorage when the user revisits the page.
