@@ -32,6 +32,9 @@ store.dispatch({
   payload: { color: 'red', changeType: 'added'}
 })
 
+store.dispatch({ type: 'todos/todoAdded', payload: 'Learn about actions'})
+
+console.log('State after dispatch: ', store.getState())
 // Stop listening to state updates
 
 unsubscribe()
