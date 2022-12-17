@@ -2,7 +2,7 @@ import { combineReducers } from "redux"
 // combineReducers accepts an object where the key names will become the keys in our root state object, and the values are the slice reducer functions that know how to update those slices of the Redux state.
 
 import todosReducer from "./features/todos/todosSlice"
-import filtersReducer from "./features/todos/filtersSlice"
+import filtersReducer from "./features/filters/filtersSlice"
 
 const rootReducer = combineReducers({
     // Define a top-level state field named `todos`, handled by `todosReducer`

@@ -2,20 +2,23 @@ import React from 'react'
 
 function App() {
   return (
-    <div className="App">
-      <nav>
-        <section>
-          <h1>Redux Fundamentals</h1>
-
-          <div className="navContent">
-            <div className="navLinks"></div>
-          </div>
-        </section>
-      </nav>
+   <div className='App'>
+    <nav>
       <section>
-        <h2>Welcome to the Redux Fundamentals example app!</h2>
+        <h1>Redux Fundamentals</h1>
       </section>
-    </div>
+    </nav>
+    <main>
+      <section className="medium-container">
+        <h2>Todos</h2>
+        <div className="todoapp">
+          <Header />
+          <TodoList />
+          <Footer />
+        </div>
+      </section>
+    </main>
+   </div>
   )
 }
 
