@@ -1,5 +1,6 @@
 import { legacy_createStore as createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducer";
+import { composeWithDevTools } from "redux-devtools-extension";
 import { print1, print2, print3 } from "./exampleAddons/middleware";
 import { loggerMiddleware } from "./exampleAddons/enhancers";
 import { delayedMessageMiddleware } from "./exampleAddons/enhancers";
@@ -21,7 +22,7 @@ import { delayedMessageMiddleware } from "./exampleAddons/enhancers";
 //     }
 // }
 
-const middlewareEhancer = applyMiddleware(print1, print2, print3, loggerMiddleware, delayedMessageMiddleware)
+const middlewareEhancer = composeWithDevTools(applyMiddleware(print1, print2, print3, loggerMiddleware, delayedMessageMiddleware))
 
 
 
