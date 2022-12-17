@@ -1,9 +1,43 @@
 import React from "react"
-
+import { StatusFilters } from "../filters/filtersSlice"
 import {availableColors, capitalize} from '../filters/colors'
 
+const RemainingTodos = ({ count }) =>{
+    const suffix = count === 1 ? '' : 's'
 
-const colorFilters = ({ value: colors, onChange}) =>{
+    return(
+        <div className="todo-count">
+            <h5>Remaining Todos</h5>
+            <strong>{count}</strong> item{suffix} left
+        </div>
+    )
+}
+
+const StatusFilter = ({ value: status, onchange }) =>{
+    const renderedFilters = Object.keys(StatusFilter).map((key) =>{
+        const value = StatusFilter[key]
+        const handleClick = () => onchange(value)
+        const className = value === status ? 'selected' : ''
+
+        return(
+            <li key={value}>
+                <button className={className} onClick={handleClick}>
+                    {key}
+                </button>
+            </li>
+        )
+    })
+
+    return(
+        <div className="filters statusFilters">
+            <h5>Filter by Status</h5>
+            <ul>{renderedFilters}</ul>
+        </div>
+    )
+}
+
+
+const ColorFilters = ({ value: colors, onChange}) =>{
     const renderedColors = availableColors.map((color) =>{
         const checked = colors.includes(color)
         const handleChange = () =>{
