@@ -40,3 +40,25 @@ console.log('Dispatch complete')
 // const store = createStore(rootReducer, preloadedState)
 
 export default store;
+
+
+
+//      SUMMARY:
+
+        //- Redux apps always have a single store
+                // - You create a store with the REdux createStore API
+                // - Every store will have a single root reducer function
+        //- Stores have three main methods
+                // - getState, which returns the current state
+                // - dispatch, sends an action to the reducer, effectively updatinng the state
+                // - subscribe, takes a listener callback that runs each time an action is dispatched
+        //- Store enhancers will let us customize the store when its created
+                // - Enhancers wrap the store and can override its emthdos
+                // - createStore accepts one enhancer as an argument
+                // - Multiple enhancers can be merged together using the compose API
+        //- Middleware are the main way to customize the store
+                // - You apply middleware using the applyMiddleware method enhancer
+                // - Middleware are written as three nested fucntions inside each toher
+                // - Middlware run each time an action is dispatched
+                // - Can have side effects inside
+        //- Redux DevTools monitors an app's state changes over time
