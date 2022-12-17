@@ -12,7 +12,7 @@ const Header = () =>{
                 className="new-todo"
                 placeholder="What needs to be done?"
                 value={text}
-                onchange={handleChange}
+                onChange={handleChange}
             />
         </header>
     )
